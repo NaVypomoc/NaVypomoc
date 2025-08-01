@@ -3,253 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pracovní Spojení</title>
+  <title>naVypomoc.cz – Pracovní inzerce moderně</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
     }
     header {
-      background-color: #2e86de;
+      background: linear-gradient(90deg, #2e86de, #54a0ff);
       color: white;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-    }
-    nav {
-      background-color: #eaf2f8;
-      padding: 10px;
+      padding: 2rem 1rem;
       text-align: center;
     }
-    nav a {
-      margin: 0 15px;
-      color: #2e86de;
-      text-decoration: none;
-      font-weight: bold;
+    .nav-link {
+      font-weight: 600;
+      color: #2e86de !important;
     }
-    main {
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .worker-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-      padding: 15px;
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-    }
-    .worker-card img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .worker-info {
-      flex: 1;
-    }
-    .worker-info h3 {
-      margin: 0 0 10px 0;
+    .card {
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
     .rating {
       color: #f1c40f;
-    }
-    .comments {
-      margin-top: 10px;
-      padding-left: 20px;
-      font-size: 0.95em;
-    }
-    .comments p {
-      margin: 5px 0;
-    }
-    .add-comment {
-      margin-top: 10px;
-    }
-    .add-comment input, .add-comment textarea {
-      width: 100%;
-      padding: 6px;
-      margin-top: 5px;
-    }
-    .add-comment button {
-      margin-top: 8px;
-      background-color: #2e86de;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
     }
     footer {
       background-color: #2e86de;
       color: white;
       text-align: center;
-      padding: 10px;
+      padding: 1rem;
+      margin-top: 2rem;
     }
-    .cta-bar {
-      background-color: #dff9fb;
-      padding: 10px;
-      text-align: center;
-      font-size: 1.1em;
-      margin-bottom: 20px;
-      border: 1px solid #c7ecee;
-    }
-    .search-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .search-bar input, .search-bar select, .search-bar button {
-      padding: 8px;
-      font-size: 1em;
-    }
-    .auth-links {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-    }
-    .auth-links a {
-      margin-left: 15px;
-      color: white;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-    .form-section {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-    }
-    .form-section h2 {
-      margin-top: 0;
-    }
-    .form-section label {
-      display: block;
-      margin-top: 10px;
-    }
-    .form-section input, .form-section textarea, .form-section select {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-    }
-    .form-section button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #2e86de;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    @media screen and (max-width: 768px) {
+      .card {
+        flex-direction: column !important;
+        align-items: center !important;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="auth-links">
-      <a href="#">Přihlásit se</a>
-      <a href="#">Registrovat</a>
-    </div>
-    <h1>Pracovní Spojení</h1>
-    <p>Propojujeme lidi přes kvalitní inzerci – zdarma pro zadavatele, férově pro pracovníky.</p>
+    <h1>naVypomoc.cz</h1>
+    <p>Spojujeme lidi přes férovou inzerci – zdarma pro zadavatele, výhodně pro pracovníky</p>
   </header>
-  <nav>
-    <a href="#">Domů</a>
-    <a href="#">Nabídky práce</a>
-    <a href="#">Pracovníci</a>
-    <a href="#">Přidat inzerát</a>
+
+  <nav class="nav justify-content-center py-3 bg-light">
+    <a class="nav-link" href="#">Domů</a>
+    <a class="nav-link" href="#nabidky">Nabídky práce</a>
+    <a class="nav-link" href="#pracovnici">Pracovníci</a>
+    <a class="nav-link" href="#pridat">Přidat inzerát</a>
   </nav>
-  <main>
-    <div class="cta-bar">
-      <strong>Inzerujte zdarma</strong> &ndash; pracovníci reagují za malý měsíční poplatek.
+
+  <main class="container mt-4">
+    <div class="alert alert-primary text-center">
+      <strong>Inzerujte zdarma</strong> – pracovníci reagují za symbolický měsíční poplatek.
     </div>
-    <div class="search-bar">
-      <input type="text" placeholder="Hledat pracovníka">
-      <select>
-        <option value="">Obor</option>
-        <option value="zednictvi">Zednictví</option>
-        <option value="uklid">Úklid</option>
-        <option value="hlidani">Hlídání dětí</option>
-        <option value="opravy">Opravy</option>
-      </select>
-      <select>
-        <option value="">Město</option>
-        <option value="praha">Praha</option>
-        <option value="brno">Brno</option>
-        <option value="ostrava">Ostrava</option>
-        <option value="plzen">Plzeň</option>
-      </select>
-      <button>Hledat</button>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Hledat pracovníka">
+      </div>
+      <div class="col-md-3">
+        <select class="form-select">
+          <option>Obor</option>
+          <option>Zednictví</option>
+          <option>Úklid</option>
+          <option>Hlídání</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select class="form-select">
+          <option>Město</option>
+          <option>Praha</option>
+          <option>Brno</option>
+          <option>Ostrava</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-primary w-100">Hledat</button>
+      </div>
     </div>
-    <div class="form-section">
-      <h2>Vložit nový inzerát</h2>
+
+    <section id="nabidky">
+      <h2>Nabídky práce</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Zedník – Praha</h5>
+              <p class="card-text">Hledáme spolehlivého zedníka na rekonstrukci bytu. Odměna 300 Kč/hod.</p>
+              <a href="#" class="btn btn-outline-primary btn-sm">Více informací</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pracovnici" class="mt-5">
+      <h2>Pracovníci</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card d-flex flex-row p-3">
+            <img src="https://via.placeholder.com/100" class="rounded-circle me-3" alt="Jan Novák">
+            <div>
+              <h5>Jan Novák</h5>
+              <p>Město: Praha | Mzda: 250 Kč/hod</p>
+              <p class="rating">★★★★☆ (4.2)</p>
+              <small>Obory: Zednictví, rekonstrukce bytů</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pridat" class="mt-5">
+      <h2>Přidat nový inzerát</h2>
       <form>
-        <label>Jméno</label>
-        <input type="text" placeholder="Vaše jméno">
-        <label>Fotografie (URL)</label>
-        <input type="text" placeholder="Odkaz na fotografii">
-        <label>Město</label>
-        <input type="text" placeholder="Např. Praha">
-        <label>Obor</label>
-        <input type="text" placeholder="Např. Úklid">
-        <label>Mzda (Kč/hod)</label>
-        <input type="number" placeholder="Např. 200">
-        <label>Popis</label>
-        <textarea rows="4" placeholder="Popište své služby a zkušenosti..."></textarea>
-        <button type="submit">Vložit inzerát</button>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Vaše jméno">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="URL fotografie">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Město">
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" placeholder="Obor">
+          </div>
+          <div class="col-md-6">
+            <input type="number" class="form-control" placeholder="Mzda (Kč/hod)">
+          </div>
+          <div class="col-12">
+            <textarea class="form-control" placeholder="Popis služeb" rows="4"></textarea>
+          </div>
+        </div>
+        <button class="btn btn-success mt-3">Odeslat</button>
       </form>
-    </div>
-    <!-- Ukázkové profily -->
-    <div class="worker-card">
-      <img src="https://via.placeholder.com/100" alt="Fotografie pracovníka">
-      <div class="worker-info">
-        <h3>Jan Novák</h3>
-        <p><strong>Mzda:</strong> 250 Kč/hod</p>
-        <p class="rating">Hodnocení: ★★★★☆ (4.2)</p>
-        <p>Obory: Zednictví, rekonstrukce bytů</p>
-        <p>Město: Praha</p>
-        <div class="comments">
-          <strong>Komentáře zákazníků:</strong>
-          <p>„Práce byla odvedena kvalitně a včas.“</p>
-          <p>„Doporučuji! Spolehlivý řemeslník.“</p>
-        </div>
-        <div class="add-comment">
-          <label>Přidat hodnocení:</label>
-          <input type="text" placeholder="Vaše jméno">
-          <textarea placeholder="Váš komentář..."></textarea>
-          <button>Přidat komentář</button>
-        </div>
-      </div>
-    </div>
-    <div class="worker-card">
-      <img src="https://via.placeholder.com/100" alt="Fotografie pracovníka">
-      <div class="worker-info">
-        <h3>Lucie Černá</h3>
-        <p><strong>Mzda:</strong> 180 Kč/hod</p>
-        <p class="rating">Hodnocení: ★★★★★ (4.9)</p>
-        <p>Obory: Úklid domácností, hlídání dětí</p>
-        <p>Město: Brno</p>
-        <div class="comments">
-          <strong>Komentáře zákazníků:</strong>
-          <p>„Pečlivá a milá paní, perfektně uklidila celý byt.“</p>
-        </div>
-        <div class="add-comment">
-          <label>Přidat hodnocení:</label>
-          <input type="text" placeholder="Vaše jméno">
-          <textarea placeholder="Váš komentář..."></textarea>
-          <button>Přidat komentář</button>
-        </div>
-      </div>
-    </div>
+    </section>
   </main>
+
   <footer>
-    &copy; 2025 Pracovní Spojení. Všechna práva vyhrazena.
+    &copy; 2025 naVypomoc.cz – Všechna práva vyhrazena
   </footer>
+
 </body>
 </html>
