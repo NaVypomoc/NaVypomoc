@@ -8,138 +8,107 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
+      background-color: #f0f2f5;
+      color: #333;
     }
     header {
-      background: linear-gradient(90deg, #2e86de, #54a0ff);
+      background: linear-gradient(90deg, #004e92, #000428);
       color: white;
       padding: 2rem 1rem;
       text-align: center;
     }
     .nav-link {
       font-weight: 600;
-      color: #2e86de !important;
-    }
-    .card {
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .rating {
-      color: #f1c40f;
+      color: #004e92 !important;
+      cursor: pointer;
     }
     footer {
-      background-color: #2e86de;
+      background-color: #004e92;
       color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
     }
-    @media screen and (max-width: 768px) {
-      .card {
-        flex-direction: column !important;
-        align-items: center !important;
-      }
-    }
+    .page-section { display: none; }
+    .active-section { display: block; }
   </style>
 </head>
 <body>
   <header>
     <h1>naVypomoc.cz</h1>
-    <p>Spojujeme lidi přes férovou inzerci – zdarma pro zadavatele, výhodně pro pracovníky</p>
+    <p>Spojujeme lidi přes férovou inzerci – jednoduše a přehledně</p>
   </header>
 
   <nav class="nav justify-content-center py-3 bg-light">
-    <a class="nav-link" href="#">Domů</a>
-    <a class="nav-link" href="#nabidky">Nabídky práce</a>
-    <a class="nav-link" href="#pracovnici">Pracovníci</a>
-    <a class="nav-link" href="#pridat">Přidat inzerát</a>
+    <a class="nav-link" onclick="showSection('home')">Domů</a>
+    <a class="nav-link" onclick="showSection('nabidky')">Nabídky práce</a>
+    <a class="nav-link" onclick="showSection('pracovnici')">Pracovníci</a>
+    <a class="nav-link" onclick="showSection('pridat')">Přidat inzerát</a>
   </nav>
 
   <main class="container mt-4">
-    <div class="alert alert-primary text-center">
-      <strong>Inzerujte zdarma</strong> – pracovníci reagují za symbolický měsíční poplatek.
-    </div>
+    <section id="home" class="page-section active-section">
+      <div class="text-center">
+        <h2>Vítejte na naVypomoc.cz</h2>
+        <p>Vyberte si v menu výše, co vás zajímá.</p>
+      </div>
+    </section>
 
-    <div class="row g-3 mb-4">
-      <div class="col-md-4">
-        <input type="text" class="form-control" placeholder="Hledat pracovníka">
-      </div>
-      <div class="col-md-3">
-        <select class="form-select">
-          <option>Obor</option>
-          <option>Zednictví</option>
-          <option>Úklid</option>
-          <option>Hlídání</option>
-        </select>
-      </div>
-      <div class="col-md-3">
-        <select class="form-select">
-          <option>Město</option>
-          <option>Praha</option>
-          <option>Brno</option>
-          <option>Ostrava</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <button class="btn btn-primary w-100">Hledat</button>
-      </div>
-    </div>
-
-    <section id="nabidky">
+    <section id="nabidky" class="page-section">
       <h2>Nabídky práce</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card mb-4">
-            <div class="card-body">
-              <h5 class="card-title">Zedník – Praha</h5>
-              <p class="card-text">Hledáme spolehlivého zedníka na rekonstrukci bytu. Odměna 300 Kč/hod.</p>
-              <a href="#" class="btn btn-outline-primary btn-sm">Více informací</a>
-            </div>
-          </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Montáž nábytku – Praha</h5>
+          <p class="card-text">Potřebujeme rychlou výpomoc při montáži nábytku. Odměna: 250 Kč/hod.</p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Malování bytu – Středočeský kraj</h5>
+          <p class="card-text">Sháníme malíře na výmalbu bytu 3+1. Odměna: 300 Kč/hod.</p>
         </div>
       </div>
     </section>
 
-    <section id="pracovnici" class="mt-5">
-      <h2>Pracovníci</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card d-flex flex-row p-3">
-            <img src="https://via.placeholder.com/100" class="rounded-circle me-3" alt="Jan Novák">
-            <div>
-              <h5>Jan Novák</h5>
-              <p>Město: Praha | Mzda: 250 Kč/hod</p>
-              <p class="rating">★★★★☆ (4.2)</p>
-              <small>Obory: Zednictví, rekonstrukce bytů</small>
-            </div>
-          </div>
+    <section id="pracovnici" class="page-section">
+      <h2>Seznam pracovníků</h2>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Jana Horáková</h5>
+          <p>Praha | Obory: Montáž nábytku, Úklid | Mzda: 200 Kč/hod | ★★★★☆</p>
         </div>
       </div>
     </section>
 
-    <section id="pridat" class="mt-5">
-      <h2>Přidat nový inzerát</h2>
+    <section id="pridat" class="page-section">
+      <h2>Přidat inzerát</h2>
       <form>
-        <div class="row g-3">
-          <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Vaše jméno">
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="URL fotografie">
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Město">
-          </div>
-          <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Obor">
-          </div>
-          <div class="col-md-6">
-            <input type="number" class="form-control" placeholder="Mzda (Kč/hod)">
-          </div>
-          <div class="col-12">
-            <textarea class="form-control" placeholder="Popis služeb" rows="4"></textarea>
-          </div>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Jméno/Název">
         </div>
-        <button class="btn btn-success mt-3">Odeslat</button>
+        <div class="mb-3">
+          <select class="form-select">
+            <option>Vyberte obor</option>
+            <option>Montáž nábytku</option>
+            <option>Malování</option>
+            <option>Úklid</option>
+            <option>Hlídání</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <select class="form-select">
+            <option>Vyberte lokalitu</option>
+            <option>Praha</option>
+            <option>Středočeský kraj</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <input type="number" class="form-control" placeholder="Nabízená mzda (Kč/hod)">
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" rows="4" placeholder="Popis nabídky"></textarea>
+        </div>
+        <button class="btn btn-primary">Odeslat</button>
       </form>
     </section>
   </main>
@@ -148,5 +117,12 @@
     &copy; 2025 naVypomoc.cz – Všechna práva vyhrazena
   </footer>
 
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.page-section');
+      sections.forEach(section => section.classList.remove('active-section'));
+      document.getElementById(id).classList.add('active-section');
+    }
+  </script>
 </body>
 </html>
